@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val botaoOfertas = findViewById<Button>(R.id.btnOfertas)
         val botaoFavoritos = findViewById<Button>(R.id.btnFavoritos)
         val botaoPerfil = findViewById<Button>(R.id.btnPerfil)
-        val botaoNotificacoes = findViewById<ImageButton>(R.id.btnNotificacoes)
+        val botaoNotificacoes = findViewById<ImageButton>(R.id.fabNotificacoes)
 
         botaoPesquisar.setOnClickListener(this::telaPesquisar)
         botaoOfertas.setOnClickListener(this::telaOfertas)

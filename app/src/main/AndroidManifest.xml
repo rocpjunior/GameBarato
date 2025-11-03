@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DezTelasRoberto">
+        android:theme="@style/Theme.GameBarato">
         <activity
             android:name=".DecimaTela"
             android:exported="false" />
@@ -19,9 +19,6 @@
             android:exported="false" />
         <activity
             android:name=".CadastroPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Notificacoes"
@@ -39,7 +36,7 @@
             android:name=".Pesquisar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
