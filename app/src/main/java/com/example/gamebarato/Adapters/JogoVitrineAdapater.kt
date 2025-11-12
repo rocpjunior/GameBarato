@@ -1,45 +1,66 @@
 package com.example.gamebarato.Adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.annotation.LayoutRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Models.JogoVitrine
+import com.example.gamebarato.R
 
 class JogoVitrineAdapater (
+    private val listaJogosVitrine: MutableList<JogoVitrine>,
+    private val listando: AdapterList,
+    private val contexto: Context,
     val onClick: (JogoVitrine) -> Unit
-) : RecyclerView.Adapter<JogoVitrineAdapter.JogoViewHolder>() {
+): RecyclerView.Adapter<JogoVitrineAdapter.JogoViewHolder>() {
 
-    private var listaJogosVitrine = mutableListOf<JogoVitrine>()
-
-    fun adicionarLista(lista: List<JogoVitrine>) {
-        this.listaJogosVitrine.addAll(lista)
+    fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
+        this.listaJogosVitrine.addAll(listaJogo)
+        this.listaJogosVitrine.clear()
         notifyDataSetChanged()
     }
 
-    inner class JogoVitrineViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class JogoVitrineViewHolder(itemView: View):
+        RecyclerView.ViewHolder(itemView) {
+            private lateinit var item: JogoVitrine
 
-        fun bind(jogo: JogoVitrine) {
-            val nomeJogo = jogo.backdrop_pathz
-            val tamanhoJogo = "w780"
-
+        fun bindViewHolder(item: JogoVitrine) {
+            this.item = item
+            val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtNomeJogo)
+            txtNomeJogo.text = item.nomeJogo
+            val txtPrecoJogo = itemView.findViewById<TextView>(R.id.txtPrecoJogo)
+            txtPrecoJogo.text = item.precoJogo
+            val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
+            imagemJogo.setOnClickListener { listando.setConclued(item) }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JogoVitrineViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = .inflate(
-        layoutInflater, parent, false
-    )
-    return JogoVitrineViewHolder (itemView = )
+    interface AdapterList{
+        fun setConclued(jogoVitrine: JogoVitrine)
+
+        fun deleteItem(jogoVitrine: JogoVitrine)
     }
 
-    override fun onBindViewHolder(holder: JogoVitrineViewHolder, position: Int) {
-        val filme = listaJogosVitrine[position]
-        holder.bind(filme)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int): JogoVitrineViewHolder {
+        return JogoVitrineViewHolder(parent.inflate(R.layout.cartao_dos_jogos))
     }
 
-    override fun getItemCount(): Int {
-        return listaJogosVitrine.size
+    override fun onBindViewHolder(
+        holder: JogoVitrineAdapater.JogoVitrineViewHolder,
+        position: Int) {
+        holder.bindViewHolder(listaJogosVitrine[position])
     }
+
+    override fun getItemCount() = listaJogosVitrine.size
+}
+
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View{
+    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }

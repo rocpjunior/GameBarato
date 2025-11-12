@@ -1,3 +1,14 @@
 package com.example.gamebarato.Models
 
-data class JogoVitrine()
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+
+data class JogoVitrine(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val nomeJogo: String,
+    val precoJogo: String,
+    val img: String
+)
