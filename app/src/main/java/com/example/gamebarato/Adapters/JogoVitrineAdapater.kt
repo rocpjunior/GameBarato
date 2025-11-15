@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.LayoutRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
@@ -15,36 +14,10 @@ import com.example.gamebarato.R
 class JogoVitrineAdapater (
     private val listaJogosVitrine: MutableList<JogoVitrine>,
     private val listando: AdapterList,
-    private val contexto: Context,
     val onClick: (JogoVitrine) -> Unit
 ): RecyclerView.Adapter<JogoVitrineAdapter.JogoViewHolder>() {
 
-    fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
-        this.listaJogosVitrine.addAll(listaJogo)
-        this.listaJogosVitrine.clear()
-        notifyDataSetChanged()
-    }
-
-    inner class JogoVitrineViewHolder(itemView: View):
-        RecyclerView.ViewHolder(itemView) {
-            private lateinit var item: JogoVitrine
-
-        fun bindViewHolder(item: JogoVitrine) {
-            this.item = item
-            val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtNomeJogo)
-            txtNomeJogo.text = item.nomeJogo
-            val txtPrecoJogo = itemView.findViewById<TextView>(R.id.txtPrecoJogo)
-            txtPrecoJogo.text = item.precoJogo
-            val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
-            imagemJogo.setOnClickListener { listando.setConclued(item) }
-        }
-    }
-
-    interface AdapterList{
-        fun setConclued(jogoVitrine: JogoVitrine)
-
-        fun deleteItem(jogoVitrine: JogoVitrine)
-    }
+    override fun getItemCount() = listaJogosVitrine.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -58,7 +31,27 @@ class JogoVitrineAdapater (
         holder.bindViewHolder(listaJogosVitrine[position])
     }
 
-    override fun getItemCount() = listaJogosVitrine.size
+    fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
+        this.listaJogosVitrine.addAll(listaJogo)
+        notifyDataSetChanged()
+    }
+
+    interface AdapterList{}
+
+    inner class JogoVitrineViewHolder(itemView: View):
+        RecyclerView.ViewHolder(itemView) {
+
+            private lateinit var item: JogoVitrine
+        fun bindViewHolder(item: JogoVitrine) {
+            this.item = item
+            val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtNomeJogo)
+            txtNomeJogo.text = item.nomeJogo
+            val txtPrecoJogo = itemView.findViewById<TextView>(R.id.txtPrecoJogo)
+            txtPrecoJogo.text = item.precoJogo
+            val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
+            imagemJogo.setOnClickListener { listando }
+        }
+    }
 }
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View{
