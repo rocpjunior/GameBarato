@@ -1,6 +1,5 @@
 package com.example.gamebarato.Adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ class JogoVitrineAdapater (
     private val listaJogosVitrine: MutableList<JogoVitrine>,
     private val listando: AdapterList,
     val onClick: (JogoVitrine) -> Unit
-): RecyclerView.Adapter<JogoVitrineAdapter.JogoViewHolder>() {
+): RecyclerView.Adapter<JogoVitrineAdapter.ViewHolder>() {
 
     override fun getItemCount() = listaJogosVitrine.size
 

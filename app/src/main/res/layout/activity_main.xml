@@ -107,6 +107,7 @@
         app:srcCompat="@drawable/ic_notificacoes" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCartoes"
         android:layout_width="409dp"
         android:layout_height="592dp"
         android:layout_marginStart="8dp"

@@ -41,9 +41,9 @@ android {
 }
 
 dependencies {
-    ksp("androix.room:room-compiler:2.8.3")
     implementation("androidx.room:room-runtime:2.8.3")
     implementation("androidx.room:room-ktx:2.8.3")
+    ksp("androidx.room:room-compiler:2.8.3")
     implementation("com.github.bumptech.glide:glide:5.0.5")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.android.material:material:1.13.0")
