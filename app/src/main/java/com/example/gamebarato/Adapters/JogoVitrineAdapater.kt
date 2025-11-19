@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 
-class JogoVitrineAdapater (
+class JogoVitrineAdapter (
     private val listaJogosVitrine: MutableList<JogoVitrine>,
     private val listando: AdapterList,
     val onClick: (JogoVitrine) -> Unit
-): RecyclerView.Adapter<JogoVitrineAdapter.ViewHolder>() {
+): RecyclerView.Adapter<JogoVitrineAdapter.JogoVitrineViewHolder>() {
 
     override fun getItemCount() = listaJogosVitrine.size
 
@@ -25,7 +25,7 @@ class JogoVitrineAdapater (
     }
 
     override fun onBindViewHolder(
-        holder: JogoVitrineAdapater.JogoVitrineViewHolder,
+        holder: JogoVitrineViewHolder,
         position: Int) {
         holder.bindViewHolder(listaJogosVitrine[position])
     }
