@@ -1,6 +1,9 @@
-package com.example.gamebarato.ui
+package com.example.gamebarato.ui.main
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.Repository.JogoRepository
 import kotlinx.coroutines.launch
@@ -21,6 +24,17 @@ class JogoViewModel(private val jogoRepository: JogoRepository): ViewModel() {
                 jogo.value = jogoRepository.mostrarCartoes()
             } catch (e: Exception){
                 errado.value = e.message
+            }
+        }
+    }
+
+    fun inserirJogo(nome: String, preco: Double, imagem: String){
+        viewModelScope.launch {
+            try {
+                val resultado = jogoRepository.inserirNovoJogo(nome,preco,imagem)
+            jogo.value = resultado
+        }catch (e: Exception){
+            errado.value = e.message
             }
         }
     }

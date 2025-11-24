@@ -9,6 +9,6 @@ data class JogoVitrine(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val nomeJogo: String,
-    val precoJogo: String,
+    val precoJogo: Double,
     val img: String
 )

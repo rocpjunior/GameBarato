@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/ic_gamepad"
         android:supportsRtl="true"
         android:theme="@style/Theme.GameBarato">
+
         <activity
             android:name=".DecimaTela"
             android:exported="false" />
@@ -36,7 +37,7 @@
             android:name=".Pesquisar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
