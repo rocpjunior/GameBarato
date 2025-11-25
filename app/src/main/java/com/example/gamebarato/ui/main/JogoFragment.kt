@@ -27,16 +27,15 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         fun newInstance() = JogoFragment()
     }
 
- private lateinit var mainViewModel: JogoViewModel
+ private lateinit var jogoViewModel: JogoViewModel
  private lateinit var adapater: JogoVitrineAdapter
  private lateinit var jogoRepositoryImplementacao: jogoRepositoryImplementacao
  lateinit var database: AppDatabase
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_jogo, container, false)
     }
 
@@ -48,9 +47,9 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
                 database.JogoDao()
             )
         val factory = JogoViewModelFactory(jogoRepositoryImplementacao)
-        mainViewModel = ViewModelProvider(this, factory).get(JogoViewModel::class.java)
+        jogoViewModel = ViewModelProvider(this, factory).get(JogoViewModel::class.java)
 
-        val fabTeste = view?.findViewById<FloatingActionButton>(R.id.fabNotificacoes)
+        val fabTeste = view?.findViewById<FloatingActionButton>(R.id.fabTeste)
         setList()
         observador()
         fabTeste?.setOnClickListener { adicionarJogo() }
@@ -58,20 +57,20 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
 
     private fun runDatabase(){
         database = context.let {
-            AppDatabase.Companion.invoke(requireContext())
+            AppDatabase.invoke(requireContext())
         }
     }
 
     private fun setList(){
-        adapater = JogoVitrineAdapter(mutableListOf(), this) { jogoVitrine -> }
+        adapater = JogoVitrineAdapter(mutableListOf()) //{ jogoVitrine -> }
         val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesJogos)
         recyclerViewList?.layoutManager = LinearLayoutManager(context)
         recyclerViewList?.adapter = adapater
     }
 
     private fun observador(){
-        mainViewModel.mostrarJogos()
-        mainViewModel.watcherAll().observe(viewLifecycleOwner, Observer {
+        jogoViewModel.mostrarJogos()
+        jogoViewModel.watcherAll().observe(viewLifecycleOwner, Observer {
             adapater.adicionarLista(it as MutableList<JogoVitrine>)
         })
     }
@@ -107,10 +106,10 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         dialogo.setView(novoLayout)
 
         dialogo.setPositiveButton("Salvar"){_,_ ->
-            val nomeProduto = nome.text.toString()
-            val imagemProduto = imagem.text.toString()
-            val precoProduto = preco.text.toString().toDoubleOrNull() ?: 0.0
-            mainViewModel.inserirJogo(nomeProduto, precoProduto, imagemProduto)
+            val nomeJogo = nome.text.toString()
+            val imagemJogo = imagem.text.toString()
+            val precoJogo = preco.text.toString().toDoubleOrNull() ?: 0.0
+            jogoViewModel.inserirJogo(nomeJogo, precoJogo, imagemJogo)
         }
         dialogo.setNegativeButton("Cancelar", null)
         dialogo.show()

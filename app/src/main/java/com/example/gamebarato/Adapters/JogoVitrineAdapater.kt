@@ -9,12 +9,10 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
-import com.example.gamebarato.ui.main.JogoFragment
 
 class JogoVitrineAdapter (
     private val listaJogosVitrine: MutableList<JogoVitrine>,
-    private val listando: JogoFragment,
-    val onClick: (JogoVitrine) -> Unit
+    //val onClick: (JogoVitrine) -> Unit
 ): RecyclerView.Adapter<JogoVitrineAdapter.JogoVitrineViewHolder>() {
 
     override fun getItemCount() = listaJogosVitrine.size
@@ -49,7 +47,7 @@ class JogoVitrineAdapter (
             val txtPrecoJogo = itemView.findViewById<TextView>(R.id.txtPrecoJogo)
             txtPrecoJogo.text = item.precoJogo.toString()
             val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
-            imagemJogo.setOnClickListener { listando }
+            //TODO Implementar view para a página do jogo
         }
     }
 }
