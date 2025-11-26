@@ -29,14 +29,6 @@ class MainActivity : AppCompatActivity() {
         botaoPerfil.setOnClickListener(this::telaPerfil)
         //botaoNotificacoes.setOnClickListener(this::telaNotificacoes)
 
-
-        /*val lista = listOf("Jogo1", "Jogo2", "Jogo3", "Jogo4")
-        for(item in lista){
-            val fragmento = caixinha()
-            supportFragmentManager.beginTransaction()
-                .add(R.id.orgaizador, fragmento)
-                .commit()
-        }*/
     }
 
     fun telaPesquisar (view: View) {

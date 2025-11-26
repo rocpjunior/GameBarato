@@ -69,8 +69,15 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
     private fun setList(){
         adapater = JogoVitrineAdapter (mutableListOf(), {
             jogoDetalhes ->
+            val nome = jogoDetalhes.nomeJogo
+            val preco = jogoDetalhes.precoJogo
+            val imagem = jogoDetalhes.img
             val intent = Intent(context, DetalhesJogo::class.java)
-            intent.putExtra("jogo", jogoDetalhes)
+
+            intent.putExtra("nomeJogo",nome )
+            intent.putExtra("precoJogo",preco )
+            intent.putExtra("imagemJogo", imagem)
+
             startActivity(intent)
         })
         val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesJogos)
