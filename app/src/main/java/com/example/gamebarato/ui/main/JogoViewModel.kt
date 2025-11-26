@@ -28,13 +28,13 @@ class JogoViewModel(private val jogoRepository: JogoRepository): ViewModel() {
         }
     }
 
-    fun inserirJogo(nome: String, preco: Double, imagem: String){
+    fun inserirJogo(nome: String, preco: String, imagem: String){
         viewModelScope.launch {
             try {
                 val resultado = jogoRepository.inserirNovoJogo(nome,preco,imagem)
-            jogo.value = resultado
-        }catch (e: Exception){
-            errado.value = e.message
+                jogo.value = resultado
+            }catch (e: Exception){
+                errado.value = e.message
             }
         }
     }

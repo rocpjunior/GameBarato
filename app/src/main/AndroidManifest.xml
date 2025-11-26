@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GameBarato">
 
         <activity
-            android:name=".DecimaTela"
+            android:name=".DetalhesJogo"
             android:exported="false" />
         <activity
             android:name=".AdicionarEndereco"
@@ -37,7 +37,7 @@
             android:name=".Pesquisar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

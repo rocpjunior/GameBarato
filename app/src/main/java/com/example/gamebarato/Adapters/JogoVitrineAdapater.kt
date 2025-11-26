@@ -6,13 +6,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.LayoutRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
+import com.squareup.picasso.Picasso
 
 class JogoVitrineAdapter (
     private val listaJogosVitrine: MutableList<JogoVitrine>,
-    //val onClick: (JogoVitrine) -> Unit
+    val onClick: (JogoVitrine) -> Unit
 ): RecyclerView.Adapter<JogoVitrineAdapter.JogoVitrineViewHolder>() {
 
     override fun getItemCount() = listaJogosVitrine.size
@@ -26,7 +28,7 @@ class JogoVitrineAdapter (
     override fun onBindViewHolder(
         holder: JogoVitrineViewHolder,
         position: Int) {
-        holder.bindViewHolder(listaJogosVitrine[position])
+        holder.bind(listaJogosVitrine[position])
     }
 
     fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
@@ -40,7 +42,7 @@ class JogoVitrineAdapter (
         RecyclerView.ViewHolder(itemView) {
 
             private lateinit var item: JogoVitrine
-        fun bindViewHolder(item: JogoVitrine) {
+        fun bind(item: JogoVitrine) {
             this.item = item
             val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtNomeJogo)
             txtNomeJogo.text = item.nomeJogo
@@ -48,6 +50,10 @@ class JogoVitrineAdapter (
             txtPrecoJogo.text = item.precoJogo.toString()
             val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
             //TODO Implementar view para a página do jogo
+            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clControlador)
+
+            Picasso.get()
+            clControlador.setOnClickListener { onClick(item) }
         }
     }
 }

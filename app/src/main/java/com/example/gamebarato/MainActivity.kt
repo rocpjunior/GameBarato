@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gamebarato.ui.main.JogoFragment
 
@@ -22,13 +21,13 @@ class MainActivity : AppCompatActivity() {
         val botaoOfertas = findViewById<Button>(R.id.btnOfertas)
         val botaoFavoritos = findViewById<Button>(R.id.btnFavoritos)
         val botaoPerfil = findViewById<Button>(R.id.btnPerfil)
-        //val botaoNotificacoes = findViewById<FloatingActionButton>(R.id.fabNotificacoes)
+        // val botaoNotificacoes = findViewById<FloatingActionButton>(R.id.fabNotificacoes)
 
         botaoPesquisar.setOnClickListener(this::telaPesquisar)
         botaoOfertas.setOnClickListener(this::telaOfertas)
         botaoFavoritos.setOnClickListener(this::telaFavoritos)
         botaoPerfil.setOnClickListener(this::telaPerfil)
-        //xbotaoNotificacoes.setOnClickListener(this::telaNotificacoes)
+        //botaoNotificacoes.setOnClickListener(this::telaNotificacoes)
 
 
         /*val lista = listOf("Jogo1", "Jogo2", "Jogo3", "Jogo4")

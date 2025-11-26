@@ -1,24 +1,29 @@
 package com.example.gamebarato.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamebarato.Adapters.JogoVitrineAdapter
+import com.example.gamebarato.DetalhesJogo
 import com.example.gamebarato.JogoViewModelFactory
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.example.gamebarato.Repository.jogoRepositoryImplementacao
 import com.example.gamebarato.Source.AppDatabase
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
@@ -27,10 +32,10 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         fun newInstance() = JogoFragment()
     }
 
- private lateinit var jogoViewModel: JogoViewModel
- private lateinit var adapater: JogoVitrineAdapter
- private lateinit var jogoRepositoryImplementacao: jogoRepositoryImplementacao
- lateinit var database: AppDatabase
+    private lateinit var jogoViewModel: JogoViewModel
+    private lateinit var adapater: JogoVitrineAdapter
+    private lateinit var jogoRepositoryImplementacao: jogoRepositoryImplementacao
+    private lateinit var database: AppDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,10 +54,10 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         val factory = JogoViewModelFactory(jogoRepositoryImplementacao)
         jogoViewModel = ViewModelProvider(this, factory).get(JogoViewModel::class.java)
 
-        val fabTeste = view?.findViewById<FloatingActionButton>(R.id.fabTeste)
+        val fab = view?.findViewById<FloatingActionButton>(R.id.fabTeste)
         setList()
         observador()
-        fabTeste?.setOnClickListener { adicionarJogo() }
+        fab?.setOnClickListener { adicionarJogo() }
     }
 
     private fun runDatabase(){
@@ -62,9 +67,14 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
     }
 
     private fun setList(){
-        adapater = JogoVitrineAdapter(mutableListOf()) //{ jogoVitrine -> }
+        adapater = JogoVitrineAdapter (mutableListOf(), {
+            jogoDetalhes ->
+            val intent = Intent(context, DetalhesJogo::class.java)
+            intent.putExtra("jogo", jogoDetalhes)
+            startActivity(intent)
+        })
         val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesJogos)
-        recyclerViewList?.layoutManager = LinearLayoutManager(context)
+        recyclerViewList?.layoutManager = GridLayoutManager(context, 2)
         recyclerViewList?.adapter = adapater
     }
 
@@ -72,6 +82,14 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         jogoViewModel.mostrarJogos()
         jogoViewModel.watcherAll().observe(viewLifecycleOwner, Observer {
             adapater.adicionarLista(it as MutableList<JogoVitrine>)
+        })
+        jogoViewModel.watcherErrado().observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                val recyclerView = view?.findViewById<RecyclerView>(R.id.rvCartoesJogos)
+                recyclerView?.visibility =  GONE
+                val fab = view?.findViewById<FloatingActionButton>(R.id.fabTeste)
+                fab?.visibility = GONE
+            }
         })
     }
 
@@ -88,7 +106,7 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         lp.setMargins(32, 24, 32, 0)
 
         val nome = EditText(context)
-        nome.hint = "Digite o nome do produto"
+        nome.hint = "Digite o nome do jogo"
         nome.layoutParams = lp
         novoLayout.addView(nome)
 
@@ -108,7 +126,7 @@ class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
         dialogo.setPositiveButton("Salvar"){_,_ ->
             val nomeJogo = nome.text.toString()
             val imagemJogo = imagem.text.toString()
-            val precoJogo = preco.text.toString().toDoubleOrNull() ?: 0.0
+            val precoJogo = preco.text.toString()
             jogoViewModel.inserirJogo(nomeJogo, precoJogo, imagemJogo)
         }
         dialogo.setNegativeButton("Cancelar", null)

@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.ButtonBarLayout
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +26,7 @@ class Login : AppCompatActivity() {
         startActivity(intent)
     }
     fun telaLogin (view: View) {
-        val intent = Intent (this, DecimaTela::class.java)
+        val intent = Intent (this, DetalhesJogo::class.java)
         startActivity(intent)
     }
 }
