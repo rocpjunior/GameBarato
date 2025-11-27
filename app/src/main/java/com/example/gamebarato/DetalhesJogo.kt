@@ -9,8 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.gamebarato.Models.JogoVitrine
-import com.example.gamebarato.ui.main.JogoFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DetalhesJogo : AppCompatActivity() {
@@ -74,7 +72,6 @@ class DetalhesJogo : AppCompatActivity() {
     }
 
     fun voltar (view: View) {
-        val intent = Intent(this, MainActivity::class.java)
         finish()
     }
 }

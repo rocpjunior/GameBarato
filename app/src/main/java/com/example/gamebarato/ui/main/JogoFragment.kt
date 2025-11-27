@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,7 +22,6 @@ import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.example.gamebarato.Repository.jogoRepositoryImplementacao
 import com.example.gamebarato.Source.AppDatabase
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {

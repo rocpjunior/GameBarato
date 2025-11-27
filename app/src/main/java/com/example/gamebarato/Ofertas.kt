@@ -5,11 +5,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gamebarato.ui.main.JogoFragment
 
 class Ofertas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ofertas)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, JogoFragment.newInstance())
+                .commitNow()
+        }
 
         val botaoInicio = findViewById<Button>(R.id.btnInicio)
         val botaoPesquisar = findViewById<Button>(R.id.btnPesquisar)

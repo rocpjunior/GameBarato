@@ -114,19 +114,19 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:srcCompat="@drawable/ic_notificacoes" />-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCartoesMain"
-        android:layout_width="409dp"
-        android:layout_height="592dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/cartao_dos_jogos" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rvCartoesMain"-->
+<!--        android:layout_width="409dp"-->
+<!--        android:layout_height="592dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="64dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:listitem="@layout/cartao_dos_jogos" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
