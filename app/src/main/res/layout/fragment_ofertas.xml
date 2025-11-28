@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.JogoFragment">
+    tools:context=".OfertasFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabTeste"
+        android:id="@+id/fabOfertas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="#00A5E0"
         android:clickable="true"
         app:iconTint="#000000"
@@ -30,7 +30,7 @@
             android:orientation="vertical" >
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvCartoesJogo"
+                android:id="@+id/rvCartoesOfertas"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="64dp"
@@ -38,9 +38,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/cartao_dos_jogos" />
+                tools:listitem="@layout/cartao_ofertas" />
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

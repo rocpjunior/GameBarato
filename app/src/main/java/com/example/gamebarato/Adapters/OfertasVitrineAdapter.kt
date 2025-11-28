@@ -1,6 +1,5 @@
 package com.example.gamebarato.Adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,50 +12,49 @@ import com.bumptech.glide.Glide
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.withContext
 
-class JogoVitrineAdapter (
-    private val listaJogosVitrine: MutableList<JogoVitrine>,
+class OfertasVitrineAdapter (
+    private val listaOfertasVitrine: MutableList<JogoVitrine>,
     val onClick: (JogoVitrine) -> Unit
-): RecyclerView.Adapter<JogoVitrineAdapter.JogoVitrineViewHolder>() {
+): RecyclerView.Adapter<OfertasVitrineAdapter.OfertasVitrineViewHolder>() {
 
-    override fun getItemCount() = listaJogosVitrine.size
+    override fun getItemCount() = listaOfertasVitrine.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int): JogoVitrineViewHolder {
+        viewType: Int): OfertasVitrineViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.cartao_dos_jogos, parent, false)
-        return JogoVitrineViewHolder(view)
+            R.layout.cartao_ofertas, parent, false)
+        return OfertasVitrineViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: JogoVitrineViewHolder,
+        holder: OfertasVitrineViewHolder,
         position: Int) {
-        holder.bind(listaJogosVitrine[position])
+        holder.bind(listaOfertasVitrine[position])
     }
 
     fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
-        this.listaJogosVitrine.addAll(listaJogo)
+        this.listaOfertasVitrine.addAll(listaJogo)
         notifyDataSetChanged()
     }
 
     interface AdapterList{}
 
-    inner class JogoVitrineViewHolder(itemView: View):
+    inner class OfertasVitrineViewHolder(itemView: View):
         RecyclerView.ViewHolder(itemView) {
 
-            private lateinit var item: JogoVitrine
+        private lateinit var item: JogoVitrine
         fun bind(item: JogoVitrine) {
             this.item = item
-            val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtNomeJogo)
+            val txtNomeJogo = itemView.findViewById<TextView>(R.id.txtJogo)
             txtNomeJogo.text = item.nomeJogo
             val txtPrecoJogo = itemView.findViewById<TextView>(R.id.txtPrecoJogo)
             txtPrecoJogo.text = item.precoJogo
             val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
             Glide.with(itemView).load(item.imgJogo).into(imagemJogo)
 
-            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clControlador)
+            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clOfertas)
 
             Picasso.get()
             clControlador.setOnClickListener { onClick(item) }

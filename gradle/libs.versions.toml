@@ -17,6 +17,7 @@ roomCompiler = "2.8.3"
 roomRuntime = "2.8.3"
 lifecycleLivedataKtx = "2.9.4"
 fragmentKtx = "1.8.9"
+cardview = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +36,7 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 room-compiler = { module = "androix.room:room-compiler", version.ref = "roomCompiler" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

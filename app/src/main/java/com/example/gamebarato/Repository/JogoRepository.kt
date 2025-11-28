@@ -16,7 +16,7 @@ class jogoRepositoryImplementacao(private val jogoDao: JogoDao): JogoRepository{
         preco: String,
         imagem: String
     ): List<JogoVitrine> {
-        val jogoVitrine = JogoVitrine(nomeJogo = nome, precoJogo = preco, img = imagem)
+        val jogoVitrine = JogoVitrine(nomeJogo = nome, precoJogo = preco, imgJogo = imagem)
         jogoDao.adicionar(jogoVitrine)
         return mostrarCartoes()
     }

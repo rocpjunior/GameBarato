@@ -9,7 +9,8 @@
     app:cardCornerRadius="10dp"
     app:cardMaxElevation="10dp"
     app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:strokeColor="#00A5E0">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clControlador"

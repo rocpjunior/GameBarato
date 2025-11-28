@@ -13,7 +13,7 @@ class Ofertas : AppCompatActivity() {
         setContentView(R.layout.activity_ofertas)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, JogoFragment.newInstance())
+                .add(R.id.container, OfertasFragment.newInstance())
                 .commitNow()
         }
 
