@@ -8,7 +8,7 @@
     tools:context=".Pesquisar">
 
     <TextView
-        android:id="@+id/txt2"
+        android:id="@+id/txtTituloPesquisar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
@@ -93,6 +93,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#00A5E0"
+        android:queryHint="Pesquise pelo nome do jogo ou plataforma:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloPesquisar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

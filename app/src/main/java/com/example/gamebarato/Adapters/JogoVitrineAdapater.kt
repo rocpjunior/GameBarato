@@ -1,19 +1,16 @@
 package com.example.gamebarato.Adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.withContext
 
 class JogoVitrineAdapter (
     private val listaJogosVitrine: MutableList<JogoVitrine>,

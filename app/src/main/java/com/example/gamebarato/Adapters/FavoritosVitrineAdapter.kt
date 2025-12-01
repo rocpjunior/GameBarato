@@ -12,35 +12,35 @@ import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.squareup.picasso.Picasso
 
-class OfertasVitrineAdapter (
-    private val listaOfertasVitrine: MutableList<JogoVitrine>,
+class FavoritosVitrineAdapter (
+    private val listaFavoritosVitrine: MutableList<JogoVitrine>,
     val onClick: (JogoVitrine) -> Unit
-): RecyclerView.Adapter<OfertasVitrineAdapter.OfertasVitrineViewHolder>() {
+): RecyclerView.Adapter<FavoritosVitrineAdapter.FavoritosVitrineViewHolder>() {
 
-    override fun getItemCount() = listaOfertasVitrine.size
+    override fun getItemCount() = listaFavoritosVitrine.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int): OfertasVitrineViewHolder {
+        viewType: Int): FavoritosVitrineViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.cartao_ofertas, parent, false)
-        return OfertasVitrineViewHolder(view)
+            R.layout.cartao_favoritos, parent, false)
+        return FavoritosVitrineViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: OfertasVitrineViewHolder,
+        holder: FavoritosVitrineViewHolder,
         position: Int) {
-        holder.bind(listaOfertasVitrine[position])
+        holder.bind(listaFavoritosVitrine[position])
     }
 
     fun adicionarLista(listaJogo: MutableList<JogoVitrine>) {
-        this.listaOfertasVitrine.addAll(listaJogo)
+        this.listaFavoritosVitrine.addAll(listaJogo)
         notifyDataSetChanged()
     }
 
     interface AdapterList{}
 
-    inner class OfertasVitrineViewHolder(itemView: View):
+    inner class FavoritosVitrineViewHolder(itemView: View):
         RecyclerView.ViewHolder(itemView) {
 
         private lateinit var item: JogoVitrine
@@ -53,14 +53,10 @@ class OfertasVitrineAdapter (
             val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
             Glide.with(itemView).load(item.imgJogo).into(imagemJogo)
 
-            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clOfertas)
+            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clFavoritos)
 
             Picasso.get()
             clControlador.setOnClickListener { onClick(item) }
         }
     }
 }
-
-//fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View{
-//    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
-//}

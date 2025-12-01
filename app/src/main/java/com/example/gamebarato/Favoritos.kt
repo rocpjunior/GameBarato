@@ -9,6 +9,11 @@ class Favoritos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favoritos)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, FavoritosFragment.newInstance())
+                .commitNow()
+        }
 
         val botaoInicio = findViewById<Button>(R.id.btnInicio)
         val botaoPesquisar = findViewById<Button>(R.id.btnPesquisar)
