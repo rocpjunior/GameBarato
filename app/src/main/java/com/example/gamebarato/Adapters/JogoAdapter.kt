@@ -53,7 +53,7 @@ class JogoVitrineAdapter (
             val imagemJogo = itemView.findViewById<ImageView>(R.id.imgJogo)
             Glide.with(itemView).load(item.imgJogo).into(imagemJogo)
 
-            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clControlador)
+            val clControlador = itemView.findViewById<ConstraintLayout>(R.id.clJogo)
 
             Picasso.get()
             clControlador.setOnClickListener { onClick(item) }

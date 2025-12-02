@@ -1,4 +1,4 @@
-package com.example.gamebarato
+package com.example.gamebarato.ux
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.jvm.java
+import com.example.gamebarato.ux.Login
+import com.example.gamebarato.R
 
 class CadastroPerfil : AppCompatActivity() {
 

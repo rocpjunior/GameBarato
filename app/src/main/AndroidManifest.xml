@@ -16,31 +16,31 @@
         android:theme="@style/Theme.GameBarato">
 
         <activity
-            android:name=".DetalhesJogo"
+            android:name=".ux.DetalhesJogo"
             android:exported="false" />
         <activity
-            android:name=".AdicionarEndereco"
+            android:name=".ux.AdicionarEndereco"
             android:exported="false" />
         <activity
-            android:name=".CadastroPerfil"
+            android:name=".ux.CadastroPerfil"
             android:exported="false" />
         <activity
-            android:name=".Notificacoes"
+            android:name=".ux.notificacoes.Notificacoes"
             android:exported="false" />
         <activity
-            android:name=".Perfil"
+            android:name=".ux.Perfil"
             android:exported="false" />
         <activity
-            android:name=".Favoritos"
+            android:name=".ux.favoritos.Favoritos"
             android:exported="false" />
         <activity
-            android:name=".Ofertas"
+            android:name=".ux.ofertas.Ofertas"
             android:exported="false" />
         <activity
-            android:name=".Pesquisar"
+            android:name=".ux.Pesquisar"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ux.jogo.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.gamebarato
+package com.example.gamebarato.Models
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

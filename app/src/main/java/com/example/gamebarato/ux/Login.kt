@@ -1,4 +1,4 @@
-package com.example.gamebarato
+package com.example.gamebarato.ux
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gamebarato.R
+import com.example.gamebarato.ux.jogo.MainActivity
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +28,7 @@ class Login : AppCompatActivity() {
         startActivity(intent)
     }
     fun telaLogin (view: View) {
-        val intent = Intent (this, DetalhesJogo::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }

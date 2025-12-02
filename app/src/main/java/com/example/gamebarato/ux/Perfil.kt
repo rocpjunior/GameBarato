@@ -1,10 +1,15 @@
-package com.example.gamebarato
+package com.example.gamebarato.ux
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gamebarato.ux.Pesquisar
+import com.example.gamebarato.R
+import com.example.gamebarato.ux.favoritos.Favoritos
+import com.example.gamebarato.ux.jogo.MainActivity
+import com.example.gamebarato.ux.ofertas.Ofertas
 
 class Perfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

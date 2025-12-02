@@ -1,9 +1,8 @@
-package com.example.gamebarato
+package com.example.gamebarato.ux.jogo
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -11,29 +10,30 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gamebarato.Adapters.FavoritosVitrineAdapter
-import com.example.gamebarato.Adapters.OfertasVitrineAdapter
+import com.example.gamebarato.Adapters.JogoVitrineAdapter
+import com.example.gamebarato.ux.DetalhesJogo
+import com.example.gamebarato.Models.JogoViewModelFactory
+import com.example.gamebarato.Models.JogoViewModel
 import com.example.gamebarato.Models.JogoVitrine
+import com.example.gamebarato.R
 import com.example.gamebarato.Repository.jogoRepositoryImplementacao
 import com.example.gamebarato.Source.AppDatabase
-import com.example.gamebarato.ui.main.JogoViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
-class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
+class JogoFragment: Fragment(), JogoVitrineAdapter.AdapterList {
 
     companion object {
-
-        fun newInstance() = FavoritosFragment()
+        fun newInstance() = JogoFragment()
     }
 
     private lateinit var jogoViewModel: JogoViewModel
 
-    private lateinit var adapater: FavoritosVitrineAdapter
+    private lateinit var adapater: JogoVitrineAdapter
 
     private lateinit var jogoRepositoryImplementacao: jogoRepositoryImplementacao
 
@@ -43,8 +43,8 @@ class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_favoritos, container, false)
+    ): View {
+        return inflater.inflate(R.layout.fragment_jogo, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,7 +57,7 @@ class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
         val factory = JogoViewModelFactory(jogoRepositoryImplementacao)
         jogoViewModel = ViewModelProvider(this, factory).get(JogoViewModel::class.java)
 
-        val fab = view?.findViewById<FloatingActionButton>(R.id.fabOfertas)
+        val fab = view?.findViewById<FloatingActionButton>(R.id.fabAdicionarJogo)
         setList()
         observador()
         fab?.setOnClickListener { adicionarJogo() }
@@ -70,8 +70,8 @@ class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
     }
 
     private fun setList(){
-        adapater = FavoritosVitrineAdapter (mutableListOf(), {
-                jogoDetalhes ->
+        adapater = JogoVitrineAdapter (mutableListOf(), {
+            jogoDetalhes ->
             val nome = jogoDetalhes.nomeJogo
             val preco = jogoDetalhes.precoJogo
             val imagem = jogoDetalhes.imgJogo
@@ -83,8 +83,8 @@ class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
 
             startActivity(intent)
         })
-        val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesOfertas)
-        recyclerViewList?.layoutManager = GridLayoutManager(context, 1)
+        val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesJogo)
+        recyclerViewList?.layoutManager = GridLayoutManager(context, 2)
         recyclerViewList?.adapter = adapater
     }
 
@@ -95,9 +95,9 @@ class FavoritosFragment : Fragment(), FavoritosVitrineAdapter.AdapterList {
         })
         jogoViewModel.watcherErrado().observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                val recyclerView = view?.findViewById<RecyclerView>(R.id.rvCartoesOfertas)
+                val recyclerView = view?.findViewById<RecyclerView>(R.id.rvCartoesJogo)
                 recyclerView?.visibility =  GONE
-                val fab = view?.findViewById<FloatingActionButton>(R.id.fabOfertas)
+                val fab = view?.findViewById<FloatingActionButton>(R.id.fabAdicionarJogo)
                 fab?.visibility = GONE
             }
         })

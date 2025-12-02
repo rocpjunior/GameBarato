@@ -1,6 +1,5 @@
-package com.example.gamebarato
+package com.example.gamebarato.ux
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -9,6 +8,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gamebarato.ux.CadastroPerfil
+import com.example.gamebarato.R
 
 class AdicionarEndereco : AppCompatActivity() {
 
@@ -65,7 +66,7 @@ class AdicionarEndereco : AppCompatActivity() {
             val resultadoIntencao = Intent()
             resultadoIntencao.putExtra("EnderecoCadastrado", """
                 """.trimIndent())
-            setResult(Activity.RESULT_OK, resultadoIntencao)
+            setResult(RESULT_OK, resultadoIntencao)
             this.finish()
         }
     }

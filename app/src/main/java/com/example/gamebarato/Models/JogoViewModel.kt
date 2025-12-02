@@ -1,10 +1,9 @@
-package com.example.gamebarato.ui.main
+package com.example.gamebarato.Models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.Repository.JogoRepository
 import kotlinx.coroutines.launch
 
