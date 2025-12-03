@@ -29,7 +29,7 @@
         android:fontFamily="@font/bungee"
         android:text="VERSÃO 1.0.0"
         android:textColor="#00A5E0"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

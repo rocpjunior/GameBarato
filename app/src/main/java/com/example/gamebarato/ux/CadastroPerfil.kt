@@ -47,8 +47,8 @@ class CadastroPerfil : AppCompatActivity() {
        //val cep = intent.getStringExtra("CEP")
 
 
-        val botaoCadastrarNovoEnd = findViewById<Button>(R.id.btnConfirmarAlteracoes)
-        val botaoCriarCadstro = findViewById<Button>(R.id.btnDeletarConta)
+        val botaoCadastrarNovoEnd = findViewById<Button>(R.id.btnCadastrarNovoEndereco)
+        val botaoCriarCadstro = findViewById<Button>(R.id.btnCriarNovoCadastro)
         val botaoAlterarFoto = findViewById<ImageButton>(R.id.btnAlterarFoto)
         val botaoVoltar = findViewById<FloatingActionButton>(R.id.fabVoltar)
 
@@ -65,7 +65,6 @@ class CadastroPerfil : AppCompatActivity() {
     }
 
     fun telaCadastroCriado (view: View) {
-        val intent = Intent(this, Login::class.java)
         finish()
     }
 
