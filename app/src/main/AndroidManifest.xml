@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -37,8 +42,24 @@
             android:name=".ux.ofertas.Ofertas"
             android:exported="false" />
         <activity
-            android:name=".ux.Pesquisar"
+            android:name=".ux.pesquisar.Pesquisar"
             android:exported="false" />
+        <activity
+            android:name=".ux.Login"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ux.jogo.MainActivity"-->
+<!--            android:exported="false" />-->
+
+<!--        <activity-->
+<!--            android:name=".ux.jogo.Login"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity
             android:name=".ux.jogo.MainActivity"
             android:exported="true">

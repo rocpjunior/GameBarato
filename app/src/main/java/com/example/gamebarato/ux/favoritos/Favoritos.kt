@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gamebarato.ux.ofertas.Ofertas
 import com.example.gamebarato.ux.Perfil
-import com.example.gamebarato.ux.Pesquisar
+import com.example.gamebarato.ux.pesquisar.Pesquisar
 import com.example.gamebarato.R
 import com.example.gamebarato.ux.jogo.MainActivity
 

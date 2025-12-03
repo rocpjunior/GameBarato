@@ -5,7 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ux.Pesquisar">
+    tools:context=".ux.pesquisar.Pesquisar">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ux.jogo.MainActivity" >
+    </FrameLayout>
 
     <TextView
         android:id="@+id/txtTituloPesquisar"
@@ -94,6 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -104,6 +113,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTituloPesquisar" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/bungee"
+        android:text="Jogos em Alta:"
+        android:textColor="#00A5E0"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_fogo"
+        app:iconGravity="top"
+        app:iconPadding="0dp"
+        app:iconSize="26sp"
+        app:iconTint="#FA8200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

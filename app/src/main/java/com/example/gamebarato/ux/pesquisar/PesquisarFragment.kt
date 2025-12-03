@@ -1,44 +1,45 @@
-package com.example.gamebarato.ux.ofertas
+package com.example.gamebarato.ux.pesquisar
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gamebarato.Adapters.OfertasVitrineAdapter
-import com.example.gamebarato.ux.DetalhesJogo
+import com.example.gamebarato.Adapters.JogoVitrineAdapter
 import com.example.gamebarato.Models.JogoViewModel
 import com.example.gamebarato.Models.JogoViewModelFactory
 import com.example.gamebarato.Models.JogoVitrine
 import com.example.gamebarato.R
 import com.example.gamebarato.Repository.jogoRepositoryImplementacao
 import com.example.gamebarato.Source.AppDatabase
+import com.example.gamebarato.ux.DetalhesJogo
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class OfertasFragment : Fragment(), OfertasVitrineAdapter.AdapterList {
+class PesquisarFragment : Fragment(), JogoVitrineAdapter.AdapterList {
 
     companion object {
-        fun newInstance() = OfertasFragment()
+        fun newInstance() = PesquisarFragment()
     }
 
     private lateinit var jogoViewModel: JogoViewModel
 
-    private lateinit var adapater: OfertasVitrineAdapter
+    private lateinit var adapater: JogoVitrineAdapter
 
     private lateinit var jogoRepositoryImplementacao: jogoRepositoryImplementacao
 
     private lateinit var database: AppDatabase
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_ofertas, container, false)
+        return inflater.inflate(R.layout.fragment_pesquisar, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,7 +51,6 @@ class OfertasFragment : Fragment(), OfertasVitrineAdapter.AdapterList {
             )
         val factory = JogoViewModelFactory(jogoRepositoryImplementacao)
         jogoViewModel = ViewModelProvider(this, factory).get(JogoViewModel::class.java)
-
         setList()
         observador()
     }
@@ -62,19 +62,20 @@ class OfertasFragment : Fragment(), OfertasVitrineAdapter.AdapterList {
     }
 
     private fun setList(){
-        adapater = OfertasVitrineAdapter(mutableListOf(), { jogoDetalhes ->
+        adapater = JogoVitrineAdapter (mutableListOf(), {
+                jogoDetalhes ->
             val nome = jogoDetalhes.nomeJogo
             val preco = jogoDetalhes.precoJogo
             val imagem = jogoDetalhes.imgJogo
             val intent = Intent(context, DetalhesJogo::class.java)
 
-            intent.putExtra("nomeJogo", nome)
-            intent.putExtra("precoJogo", preco)
+            intent.putExtra("nomeJogo",nome )
+            intent.putExtra("precoJogo",preco )
             intent.putExtra("imagemJogo", imagem)
 
             startActivity(intent)
         })
-        val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesOfertas)
+        val recyclerViewList = view?.findViewById<RecyclerView>(R.id.rvCartoesJogo)
         recyclerViewList?.layoutManager = GridLayoutManager(context, 2)
         recyclerViewList?.adapter = adapater
     }
@@ -86,8 +87,8 @@ class OfertasFragment : Fragment(), OfertasVitrineAdapter.AdapterList {
         })
         jogoViewModel.watcherErrado().observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                val recyclerView = view?.findViewById<RecyclerView>(R.id.rvCartoesOfertas)
-                recyclerView?.visibility = View.GONE
+                val recyclerView = view?.findViewById<RecyclerView>(R.id.rvCartoesJogo)
+                recyclerView?.visibility =  GONE
             }
         })
     }

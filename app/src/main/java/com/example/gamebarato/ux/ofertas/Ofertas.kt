@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gamebarato.ux.Perfil
-import com.example.gamebarato.ux.Pesquisar
+import com.example.gamebarato.ux.pesquisar.Pesquisar
 import com.example.gamebarato.R
 import com.example.gamebarato.ux.favoritos.Favoritos
 import com.example.gamebarato.ux.jogo.MainActivity

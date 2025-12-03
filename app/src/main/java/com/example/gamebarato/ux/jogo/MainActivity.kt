@@ -9,7 +9,7 @@ import com.example.gamebarato.ux.favoritos.Favoritos
 import com.example.gamebarato.ux.notificacoes.Notificacoes
 import com.example.gamebarato.ux.ofertas.Ofertas
 import com.example.gamebarato.ux.Perfil
-import com.example.gamebarato.ux.Pesquisar
+import com.example.gamebarato.ux.pesquisar.Pesquisar
 import com.example.gamebarato.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

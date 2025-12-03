@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ux.ofertas.OfertasFragment">
-
+    tools:context=".ux.jogo.JogoFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,18 +14,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvCartoesOfertas"
+                android:id="@+id/rvCartoesJogo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="64dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="170dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="64dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/cartao_ofertas" />
+                tools:listitem="@layout/cartao_dos_jogos" />
         </LinearLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

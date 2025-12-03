@@ -14,7 +14,7 @@
         android:fontFamily="@font/bungee"
         android:text="CADASTRO DE PERFIL"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -130,6 +130,7 @@
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt8"
@@ -152,10 +153,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/borda_azul_botao"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#00A5E0"
         android:text="CRIAR CADASTRO"
-        android:textColor="#00A5E0"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -164,16 +164,15 @@
 
     <Button
         android:id="@+id/btnCadastrarNovEnd"
-        android:layout_width="360dp"
+        android:layout_width="330dp"
         android:layout_height="55dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/borda_azul_botao"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="#36F796"
         android:fontFamily="@font/bungee"
         android:text="CADASTRAR NOVO ENDEREÇO"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:cornerRadius="1dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/btnConfirmaCadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -183,10 +182,10 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/txt8"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
         app:srcCompat="@drawable/ic_galeria" />
 
     <TextView
