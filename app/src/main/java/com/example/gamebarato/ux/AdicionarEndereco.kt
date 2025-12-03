@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gamebarato.ux.CadastroPerfil
 import com.example.gamebarato.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AdicionarEndereco : AppCompatActivity() {
 
@@ -20,7 +21,10 @@ class AdicionarEndereco : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_adicionar_endereco)
         val botaoCadastrarEndereco = findViewById<Button>(R.id.btnCadastrarEndereco)
+        val botaoVoltar = findViewById<FloatingActionButton>(R.id.fabVoltar)
+
         botaoCadastrarEndereco.setOnClickListener(this::salvandoEndereco)
+        botaoVoltar.setOnClickListener(this::voltar)
     }
 
     protected fun salvandoEndereco(view: View) {
@@ -64,10 +68,13 @@ class AdicionarEndereco : AppCompatActivity() {
         val botaoCadastrarEndereco = findViewById<Button>(R.id.btnCadastrarEndereco)
         botaoCadastrarEndereco.setOnClickListener{
             val resultadoIntencao = Intent()
-            resultadoIntencao.putExtra("EnderecoCadastrado", """
+            resultadoIntencao.putExtra("EndereçoCadastrado", """
                 """.trimIndent())
             setResult(RESULT_OK, resultadoIntencao)
             this.finish()
         }
+    }
+    fun voltar (view: View) {
+        finish()
     }
 }

@@ -45,23 +45,10 @@
             android:name=".ux.pesquisar.Pesquisar"
             android:exported="false" />
         <activity
-            android:name=".ux.Login"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ux.jogo.MainActivity"-->
-<!--            android:exported="false" />-->
-
-<!--        <activity-->
-<!--            android:name=".ux.jogo.Login"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-        <activity
             android:name=".ux.jogo.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ux.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

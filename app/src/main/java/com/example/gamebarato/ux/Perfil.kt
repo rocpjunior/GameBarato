@@ -1,6 +1,7 @@
 package com.example.gamebarato.ux
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -12,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.gamebarato.R
 import com.example.gamebarato.ux.favoritos.Favoritos
 import com.example.gamebarato.ux.jogo.MainActivity
@@ -37,12 +39,14 @@ class Perfil : AppCompatActivity() {
         val botaoOfertas = findViewById<Button>(R.id.btnOfertas)
         val botaoFavoritos = findViewById<Button>(R.id.btnFavoritos)
         val botaoAlterarFoto = findViewById<ImageButton>(R.id.btnAlterarFoto)
+        val botaoDeletarConta = findViewById<Button>(R.id.btnDeletarConta)
 
         botaoInicio.setOnClickListener(this::telaInicio)
         botaoPesquisar.setOnClickListener(this::telaPesquisar)
         botaoOfertas.setOnClickListener(this::telaOfertas)
         botaoFavoritos.setOnClickListener(this::telaFavoritos)
         botaoAlterarFoto.setOnClickListener(this::alterarFoto)
+        botaoDeletarConta.setOnClickListener(this::deletarConta)
     }
 
     fun telaInicio (view: View) {
@@ -75,5 +79,13 @@ class Perfil : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Você não autorizou o uso da câmera", Toast.LENGTH_LONG).show()
         }
+    }
+    fun deletarConta (view: View) {
+            val dialogo = AlertDialog.Builder(this)
+            dialogo.setTitle("Remover Conta")
+            dialogo.setMessage("Você quer deletar sua conta?")
+            dialogo.setPositiveButton("Deletar"){_,_ -> null}
+            dialogo.setNegativeButton("Cancelar"){_,_ -> null}
+            dialogo.show()
     }
 }
